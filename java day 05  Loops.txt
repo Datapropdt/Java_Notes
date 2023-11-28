@@ -1,0 +1,35 @@
+Loops:
+1. while loop
+2. do while loop
+3. for loop
+
+1.while loop: 
+It will be executed repeatedly as long as the condition remains true. Before 
+executing body of the loop, the condition is checked whether it is true or not. Hence, it is 
+called pre-testing loop. If condition is true, then body of the loop will be executed, till the 
+condition becomes false. Otherwise, body of the loop is not executed.
+
+Syntax:
+while( condition )
+{
+// body of the loop;
+}
+
+2. do-while loop
+It is similar to that of while loop except that it is executed at least once. So it is called 
+as post-testing loop. The test of condition for repeating is done after each time boy of loop is 
+executed. 
+Syntax:
+do
+{
+// body of loop;
+} while ( condition );
+
+ for loop
+ It is a flexible control structure. The length of source code can be reduced by using 
+“for” loop. The body of the loop is executed repeatedly till the condition is false. 
+Syntax:
+for( initialization ; condition ; incr/decr )
+{
+// body of loop;
+}

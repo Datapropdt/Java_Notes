@@ -1,0 +1,148 @@
+Exception:
+An exception can be defined as error which can be occurred at runtime or execution time. 
+
+Def: Exception handling
+Exception handling can be defined as a mechanism of handling exceptions that 
+can be occurred at run-time. This mechanism is commonly used to prevent the 
+malfunctions such as computer deadlock or computer hanging and some examples of 
+runtime exceptions are divide by zero, array out of bound. 
+Exception handling mechanism:
+* The runtime exception can be handled by using five keywords namely try, catch, 
+throw, throws and finally. 
+* The code that generates exception is usually placed in try block. 
+* If an exception is occurred, execution flow finds the catch block and leaves the try 
+block. 
+* The catch block handles the exception and generates message specifying the type of 
+exception. 
+* There is no rule that try block must contain corresponding catch blocks. Each try 
+block may contain zero or multiple catch blocks. 
+* When an exception is thrown and if it is matched with any of the catch block, then 
+the statements of corresponding catch block can be executed. 
+* Otherwise, the catch block can be skipped and the statements present next to catch 
+block will be executed. 
+* The finally block is declared after all the catch blocks whose code can be executed 
+irrespective to the occurrence of exception. 
+* Finally block is optional. 
+* If a method throws an exception, then it can be handled by catch block. This 
+exception can be thrown using "throws" clause. 
+* When control leaves the throws block, then it cannot return back to the "throws" 
+clause.
+
+-------------------------------------------------------------
+
+Syntax:
+try
+{
+//block of code to check exception
+}
+catch(Exception-type1 exception-object)
+{
+//code to handle exceptions
+}
+catch(Exception-type2 exception-object)
+{
+//code to handle exceptions
+}
+finally
+{
+//code to be executed before/after try-catch block
+}
+
+
+Example program:
+class ExceptionHandler
+{
+public static void main( String args[ ] )
+{
+try
+{
+int a=10,b; 
+b=a / 0; 
+System.out.println("b value="+b);
+}
+catch(ArithmeticException e)
+{
+System.out.println("denominator must not be zero");
+}
+
+
+o/p:
+--------------------------------------------------------------------------------------------------
+
+throw:
+Syntax:
+throwthrowable-instance;
+
+There are two ways to obtain throwable object:
+1. Using a parameter into catch block.
+For example, 
+catch(NullPointerException e)
+{
+….
+throw e;
+}
+2. Creating a throw statement with "new" operator
+For example, 
+throw new NullPointerException;
+
+
+class DemoThrow
+{
+int x=5, y=1,z;
+int division( )
+{
+try
+{
+if( y == 0 )
+throw new ArithmeticException("Division by Zero");
+else
+return x / y;
+}
+catch(ArithmeticException ae)
+{
+System.out.println("Exception caught at division");
+throw ae; //throws exception explicitly
+}
+}
+public static void main( String args[ ] )
+{
+try
+{
+z=division( );
+System.out.println(+z);
+}
+}
+
+---------------------------------------------------------------------------------------
+User-defined Exception:
+An exception which can be created by the user manually can be called as userdefined exception. These exceptions can often handled by Java. While creating userdefined exceptions, user must satisfy the below steps:
+Step1: The user-defined exceptions must be created as child exception class of 
+throwable class. 
+Step2: If the user-defined exception is a checked exception, the Exception class must be 
+extended. 
+Step3: When the runtime exception is declared as user-defined exception, then the 
+runtimeException class must be extended.
+
+Example:
+class A extends Exception
+{
+A ( String s1 )
+{
+super(s1);
+}
+}
+class Userdefined
+{
+public static void main(String args[ ])
+{
+try
+{
+throw new A(“demo”);
+}
+catch( Exception e)
+{
+System.out.println(e);
+}
+}
+}
+O/P:

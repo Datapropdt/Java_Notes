@@ -1,0 +1,150 @@
+Control structures in JAVA:It is used to check the given condition in a program is either true or false. 
+
+1) if (simple if)
+2) if-else
+3) else if 
+4) nested if
+5) switch
+
+1) if statement ( simple if )
+It is used to check only one condition in a program. Only true condition. 
+Syntax:
+if(condition)
+statements;
+If the condition is true, then the corresponding statements will be executed.
+
+Example:
+public class 004If
+{
+public static void main(String args[])
+{
+int x=1,y=2;
+if(x > y)
+{System.out.println(“x is big”);
+}
+}}
+
+2) if-else statement
+It is used to check two conditions in a program. 
+Syntax:
+if(condition)
+statement1;
+else
+statement2;
+If the condition is true, then statement1 will be executed. Otherwise, statement2 will be executed.
+
+Example:
+public class 004Ifelse
+{
+public static void main(String args[])
+{
+int x=1,y=2;
+if( x > y )
+System.out.println("x is greater than y");
+else
+System.out.println("y is greater than x");
+}}
+
+3) else-if statement
+It is used to check multiple conditions in a program. Three conditions are preferable. 
+Syntax:
+if( condition1 )
+statement1;
+else if( condition2 )
+statement2;
+else
+statement3;
+If the condition1 is true, then statement1 will be executed. If fails, condition2 is checked. If 
+it is true, then statement2 will be executed. If fails, statement3 will be executed. 
+
+Example:
+public class 004Esleif
+{
+public static void main(String args[])
+{
+int x=1,y=2;
+if ( x > y && x > z )
+System.out.println("x is biggest");
+else if ( y > z )
+System.out.println("y is biggest");
+else
+System.out.println("z is biggest");
+}}
+4) nested if statement
+Writing an if statement within another if statement is known as nested if. It is 
+essential in programming since they yield a follow-up selection depending on the result of 
+previous selection. 
+Syntax:
+if( condition1 )
+if( condition2 )
+statement1;
+else if( condition3 )
+statement2;
+else
+statement3;
+First condition1 is checked. If it is true, then condition2 is checked. If both the conditions 
+are true, only then statement1 is executed. If the condition3 is true, then statement2 is
+executed otherwise, statement3 will be executed. 
+Example:
+public class 004Nesleif
+{
+public static void main(String args[])
+{
+int x=1,y=2,z=3;
+
+if ( x > y )
+if ( x > z )
+System.out.println("x is biggest");
+else if ( y > z )
+System.out.println("y is biggest");
+else
+System.out.println("z is biggest");
+}}
+5) switch statement
+It is called as multi-way branching statement. It is used for checking multiple conditions or cases in a program, provides multiple alternatives and the user can select the required option. The break statement is used for immediate exit from the switch statement. 
+If all the conditions are failed to execute, then default condition will be executed. 
+Syntax:
+switch( variable )
+{
+case 1:
+statement1;
+break;
+case 2:
+statement2;
+break;
+…
+…
+default:
+statement n;
+}
+
+Example:
+public class 004Switch
+{
+public static void main(String args[])
+{
+int x=1,y=2;
+case 1:
+System.out.println(“Sunday”);
+break;
+case 2:
+System.out.println(“Monday”);
+break;
+case 3:
+System.out.println(“Tuesday”);
+break;
+case 4:
+System.out.println(“Wednesday”);
+break;
+case 5:
+System.out.println(“Thursday”);
+break;
+case 6:
+System.out.println(“Friday”);
+break;
+case 7:
+System.out.println(“Saturday”);
+break;
+default:
+System.out.println(“wrong selection”);
+}

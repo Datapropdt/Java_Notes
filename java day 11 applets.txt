@@ -1,0 +1,316 @@
+Applet structure:
+
+Applet structure or skeleton 
+import java.awt.*;  
+// to make Graphics class available 
+import java.applet.*; 
+// to make Applet class available 
+public class AppletName extends Applet 
+{ 
+public void init( ) 
+{ 
+// initialization 
+} 
+public void start( ) 
+{ 
+// start or resume the applet execution 
+} 
+public void stop( ) 
+{ 
+// interrupts the execution of applet 
+} 
+public void destroy( ) 
+{ 
+// performs shutdown activities 
+} 
+public void paint(Graphics g) 
+{ 
+// display or redisplay the output 
+} 
+} 
+Example program 
+import java.awt.*; 
+import java.applet.*; 
+public class FirstApplet extends Applet 
+{ 
+public void paint(Graphics g ) 
+{ 
+g.drawString(“Welcome to applet programming”, 10,10); 
+} 
+} 
+
+
+
+In the above program, the first statement imports the AWT package which consists of classes used to draw lines, shapes, letters, set colours and to choose fonts. 
+This package can also act as an interface between the applet program and user. 
+*The next statement imports java.applet package which contains the Applet class. This class is a super class of every class created in applet. Therefore, an applet class 
+must be extended in any applet application. 
+*In the next statement, a class called FirstApplet is defined. Every class defined in an applet must be declared with access specifier “public” since the class must be 
+accessed externally. 
+*In the FirstApplete class, a method called paint( ) is declared with access specfier “public”. This method belongs to the component class which can be defined in AWT 
+package. Generally, paint( ) method is used to draw the output. While declaring paint( ) method, an argument called Graphics is used. The Graphics class contains 
+graphics context which can describe graphics environment during the execution of applet. This can be used when the output is needed in applet window. The Graphics 
+class consists of an object which can be used to draw the output. 
+*In the paint( ) method, another method called drawString( ) is invoked which can output a string with specified X, Y location in applet window. This method can be 
+defined in Graphics class and can be accessed through the object of this class. 
+*In applet program, it is not mandatory to use main( ) method. The execution of an applet program can be started from the class which can be passed to the browser or 
+to other applet-enabled program. 
+
+Executing or Running an applet 
+An applet can be executed in two ways. They are as follows: 
+a) Applet viewer 
+b) Browser 
+a) Applet viewer 
+Save the file as FirstApplet.java and compile it by using javac. Now type the 
+following HTML code in notepad editor and save the file as SampleApplet.html (here 
+the file name is not necessarily the same as the class name).  
+<html> 
+<body> 
+<applet code = “AppletExample”  width=200 height=80> 
+</applet> 
+</body>
+</html>
+Now execute the html file by using,
+appletviewer SampleApplet.html
+The another way is to simply include this code in comments at the top of class
+declaration and below to import statements.
+import java.awt.*;
+import java.applet.*;
+/*
+<applet code = “AppletExample” width=200 height=80>
+</applet>
+*/
+public class AppletExample extends Applet
+{
+public void paint(Graphics g )
+{
+g.drawString(“Welcome to applet programming”, 10,10);
+}
+}
+
+b Browser
+An applet program can be executed by simply typing the URL of html file in address bar or by double clicking the html file. Then the output can be displayed. 
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+Applet life cycle
+Q: Explain about Applet life cycle.
+An applet consists of various methods which can override and can be used to
+control the execution of applet either in applet viewer or browser. These methods can be
+involved in the life cycle of an applet.
+Applet life cycle
+The following are the methods in the applet life cycle.
+a) init( )
+b) start( )
+c) stop( )
+d) destroy( )
+a) init( )
+This method is used to initialize all the applet variables and also perform
+different start-up activities. This is the method which must be invoked initially. This
+method can be called only once in an applet program.
+b) start( )
+This method is invoked after the completion of invoking init( ) method. The
+start( ) method is used to start and resume the applet. If the user minimized and
+returned again to previous webpage which consists of an applet, then the execution
+process of this applet can be resumed from start( ) method. This method can be invoked
+multiple times during the execution of an applet program.
+c) stop( )
+This method is used to suspend the applet. This method can be invoked when the
+user left the current webpage which consists of an applet.
+The stop( ) method can also be used to suspend the child thread which can be
+created by the applet and have an ability to perform any other task which can keep the
+applet in idle mode or sleep mode. It does not mean that the applet cannot be executed.
+The suspended applet or child thread can be executed by resuming the applet. This can
+be done by invoking the start( ) method.
+d) destroy( )
+This method is invoked when there is a requirement to remove the applet
+completely from memory. Once applet is destroyed, all the resources allocated to the
+applet can be released. This method can perform the shutdown operation of an applet if
+required.
+
+Explain the common methods used in Applet (displaying the output).
+1. drawstring( )
+This method is a member of Graphics class, used to output a string to an applet.
+It is typically called from within the paint( ) or update( ).
+syntax:
+void drawstring(String msg, int a, int b)
+here, the first argument is the string output to be displayed by the applet. The second
+and third arguments are x and y coordinates of the window respectively where the
+output has to be displayed.
+2. setBackground( )
+This method belongs to component class. It is used to set the background color of
+the applet window.
+syntax:
+void setBackground(Color.anycolor)
+Here Color is the class and it has predefined constants for each color, such as Color.red,
+Color.blue, Color.green and Color.pink
+3. setForeground( )
+This method is similar to setBackground method, except that these are used to
+set he color of the text to be displayed on the foreground of the applet window.
+syntax:
+void setForeground(Color.anycolor)
+4. showStatus( )
+This method is a member of Applet class. It is used to display any string in the
+status window of the browser or appletviewer.
+syntax: void showStatus(String text)
+5. paint( )
+When a component needs to draw/redraw itself, paint( ) is called.
+syntax:
+public void paint(Graphics g)
+{
+....
+}
+6. repaint( )
+This method is used to force a component to be repainted manually.
+repaint( ) update( ) paint( )
+
+
+Event handling:
+*Any change in the state of source defined by an object is called event.
+*Generally, an event is triggered whenever the following situations are encountered.
+i) On clicking a mouse button.
+ii) On entering a character through keyboard.
+*An event is usually generated when a user directly or indirectly interact with the
+Interfaces.
+*For instance, an event occurs
+a) when the time expires.
+b) when there is a failure in hardware or software.
+c) when a counter exceeds its limited value.
+
+
+Event Delegation Model:
+*The event delegation model defines standard mechanism for generating an event.
+*Basically an event is generated by an object called source, which is later received
+and processed by another object called listener.
+*The main purpose of delegation event model is to separate application logic from the
+user interface logic, which in turn delegate its responsibilities to the different piece
+of code.
+*In this scheme, a listener can receive event notification only after registering itself
+with event source. 
+
+This help in
+i) Sending notifications only to interested listeners.
+ii) Handling events efficiently.
+*Delegation event model is mainly used for the following reasons.
+i) For receiving the desired event listener
+ii) For registering/unregistering with the event listener
+*Delegation event model usually handles two commonly generated events like
+mouse event and keyboard event.
+
+
+Sources of Events:
+Sources of events can be either components of GUI or any other class derived
+from a component (such as applet), which can generate event like events from keyboard
+and mouse. Some of the components of GUI are listed below.
+Button 			Choice 		Menu item
+Check box 		List 		Window
+Scroll bar 			Text 		components etc.,
+
+Event Listeners:
+*Event listeners are created by implementing one or more interfaces defined by the
+java.awt.event package.
+*Whenever a source generates an event, it basically invokes the appropriate method
+defined in the listener interface.
+*The method has an event object passed as an argument to it.
+*Some of the frequently used listeners are given below.
+KeyListener 			ItemListener 			WindowListener
+MouseListener 			ActionListener 			ComponentListener
+MouseMotionListener 		TextListener 			ContainerListener
+MouseWheelListner 			FocusListner 			AdjustmentListener
+
+
+-----------------------------------------------------------------------------------------------------
+KeyListener interface:
+This method has three methods defined within it.
+Method name 			Invokes when
+void KeyPressed(KeyEvent ke) 	key is pressed.
+void KeyReleased(KeyEvent ke) 	key is released.
+void KeyTyped(KeyEvent ke) 	key is typed.
+
+MouseListener interface:
+This interface has five methods, having signatures as follows:
+Method name 				Invokes when
+void mouseClicked(MouseEvent me) 	mouse clicked.
+void mouseEntered(MouseEvent me) 	mouse enters a component.
+void mousePressed(MouseEvent me) 	mouse is pressed but not released.
+void mouseReleased(MouseEvent me) 	pressed mouse is released.
+void mouseExited(MouseEvent me) 	mouse leaves a component.
+
+MouseMotionListener interface:
+This interface has two methods having the signatures.
+Method name 				Invokes when
+void mouseMovedMouseEvent me) 		mouse is moved from one place to another.
+void mouseDragged(MouseEvent me) 	mouse is dragged.
+
+ItemListner interface:
+This interface has only one method defined as,
+Method name 				Invokes when
+void itemStateChanged(ItemEvent e) 	the state of item changes.
+
+ActionListener interface:
+This interface has only one method defined as,
+Method name 				Invokes when
+void actionPerformed(ActionEvent e) 	any action event is performed. 
+
+TextListner interface:
+This interface has only one method defined as,
+Method name 				Invokes when
+void TextChanged(TextEvent e) 		there is a change in text field.
+
+FocusListener interface:
+This interface has two methods having the signatures.
+Method name 				Invokes when
+void focusGained(FocusEvent e) 		the component obtains keyboard focus.
+void focusLost(FocusEvent e) 		the component loses the keyboard focus.
+
+WindowListener interface:
+This interface has two methods having the signatures.
+Method name 				Invokes when
+void focusGained(FocusEvent e) 		the component obtains keyboard focus.
+void focusLost(FocusEvent e) 		the component loses the keyboard focus.
+
+---------------------------------------------------------------------------------------------------------
+
+AdapterDemo.java
+import java.awt.*;
+import java.awt.event.*;
+import java.applet.*;
+public class AdapterDemo extends Applet
+{
+public void init()
+{
+addMouseListener(new My(this));
+addMouseMotionListener(new MyAdd(this));
+}
+}
+class My extends MouseAdapter
+{
+AdapterDemo a;
+public My(AdapterDemo p)
+{
+this.a=p;
+}
+public void mouseClicked(MouseEvent me)
+{
+a.showStatus("Mouse Clicked");
+}
+}
+class MyAdd extends MouseMotionAdapter
+{
+AdapterDemo a;
+public MyAdd(AdapterDemo p)
+{
+this.a=p;
+}
+public void mouseDragged(MouseEvent me)
+{
+a.showStatus("Mouse Dragged");
+}
+}
+Adapter.html
+<html>
+<applet code="AdapterDemo.class" width=400 height=350>
+</applet>
+</html>
+
+-------------------------------------------------------------------------------

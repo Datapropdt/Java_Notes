@@ -1,0 +1,146 @@
+Operators: An operator is symbol it is use to perform operations on operands.
+
+1.Arthiematic Operators
+2. Relations Operators
+3. Assignment Operators
+4. Logical Operators
+5. Bitwise Operators
+6. Conditional Operators
+
+--------------------------------------------------------------
+1.Arthiematic Operators
++ addition
+- substraction
+* multiplication
+/ division
+% modular division
+++ increament
+-- decreament
+
+public class Add
+{
+public static void main(String args[])
+	{
+	int a =10,b=20;
+	System.out.println("\nSum: " +(a+b));
+	System.out.println("\nDifference: " +(a-b));
+	System.out.println("\nProduct: " +(a*b));
+	System.out.println("\nQuotient: " +(a/b));
+	System.out.println("\nReminder: " +(a%b));
+	}
+}
+
+------------------------------------------------------
+2. Relations Operators
+==  equals to 
+!=  not equals to 
+< less than
+> greater than
+<= less than equals to 
+>= greater than equals to 
+
+public class Rel002
+{
+public static void main(String args[])
+	{
+	int a =10,b=20;
+	if(a>b){
+	System.out.println("\n: A is greater");
+	}
+else{
+System.out.println("\n B is greater ");
+}
+}
+
+-----------------------------------------------------------------
+3. Assignment Operators:
+
+= equals to 
++= plus equals to
+-= minus equals to
+*= multiply equals to
+/= divide equals to
+%= mod division equals to
+
+
+
+public class Assign
+{
+public static void main(String args[])
+	{
+	int a =10,c;
+	System.out.println("\nC: " +(c=a));
+	System.out.println("\nC: " +(c+=a));
+	System.out.println("\nC: " +(c-=a));
+	System.out.println("\nC: " +(c*=a));
+	System.out.println("\nC: " +(c/=a));
+	System.out.println("\nC: " +(c%=a));
+	}
+}
+---------------------------------------------------------------------------------------
+4. Logical Operators:
+
+AND	&& 
+OR	||
+NOT	!
+              
+a	0	0	1	1	
+b	0	1	0	1
+a&&b	0	0	0	1
+a||b	0	1	1	1
+!(a&&b) 	1	1	1	0
+
+public class Log
+{
+public static void main(String args[])
+	{
+	boolean a =true,b=false;
+	System.out.println("\nAND: " +(a&&b));
+	System.out.println("\nOR: " +(a||b));
+	System.out.println("\nNOT: " +(!(a&&b)));		
+	}
+	}
+
+
+--------------------------------------------------------------------------------------
+5. Bitwise Operators:
+
+AND		& (ampersand)
+OR		|   (pipe)
+XOR		^ (caret)
+1's compliement	~ (tilde)
+left shift		<<
+right shift		>>
+
+
+public class Bit
+{
+public static void main(String args[])
+	{
+	int a=65,z=91;	
+	System.out.println("\nAND: " +(a&z));
+	System.out.println("\nOR: " +(a|z));
+	System.out.println("\nXOR: " +(a^z));
+	System.out.println("\n1's C: " +(~a));
+	System.out.println("\nLeft Shift: " +(a<<2));
+	System.out.println("\nRight Shift: " +(z>>2));
+	}
+	}
+
+
+------------------------------------------------------------
+6. Conditional Operators:
+
+? 
+:
+public class Cono
+{
+public static void main(String args[])
+{
+int a =10, b;
+b=(a==1 )?10:20;
+System.out.println("\nValue in B: "+b);	
+b=(a==10 )?30:40;
+System.out.println("\nValue in B: "+b);
+}
+}

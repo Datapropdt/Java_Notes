@@ -1,0 +1,245 @@
+Inner classes:
+
+* It is possible to define a class within another class. Such classes are known as nested
+classes. A nested class has access to all of the variables and methods of its outer class.
+But the outer class does not access the variables and methods of nested class.
+* There are two types of nested classes, static and non-static.
+* A static nested class is a class started with “static” keyword. Due to the static, it
+must access the members of its enclosing class through an object. Direct access
+cannot be possible.
+* A non-static nested class is a class as ordinary representation of class. The most
+important type of the non-static class is “inner class”. The inner class has access to
+all of the variables and methods of its outer class. Thus, inner class scope is fully
+within the scope of its outer class.
+
+Demo.java
+class Outer
+{
+int k=34;
+void test()
+{
+Inner in=new Inner();
+in.display();
+}
+class Inner
+{
+void display()
+{
+System.out.println("value="+k);
+}
+}
+}
+class Demo
+{
+public static void main(String args[])
+{
+Outer x= new Outer();
+x.test();
+}
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+ Differences between Applets and Application programs.
+Applet:
+1. The execution of the applet does not start from main( ), as it does not have.
+2. Applets cannot run on their own. They have to be embedded inside a web page to
+get executed.
+3. Applets can be only executed inside a browser or appletviewer.
+4. Applets execute under strict security limitations.
+5. Applets have their own life cycle:
+init( ) -> start( ) -> paint( ) -> stop( ) -> destroy( )
+
+Application program:
+1. The execution of an application program starts from main( ).
+2. These can run on their own. In order to get executed, they need not be embedded
+inside any web page.
+3. Applications have no inherent security restrictions.
+4. Applications have no inherent security
+restrictions.
+5. Applications have their own life cycle. Their execution begin at main( )
+
+------------------------------------------------------------------------------------------
+
+AWT (Abstract Window Toolkit) – introduction, components and containers, button,
+label, checkbox, radio buttons, list boxes, choice boxes, container classes, layouts, menu,
+scrollbar.
+Abstract Window Toolkit
+Def: The java AWT (Abstract Window Toolkit) consists of classes that are used in
+building Graphical User Interface (GUI ). In addition to this, they are also used in
+creating images, colors, fonts and graphics paintings. All these classes are contained in
+the package called java.awt. The layout manager is responsible for adding the components and deploying them in the containers.
+Components:
+* Components are used by the user to interact with the user interface.
+* These components are added to the container where container is also a component.
+* In Java, component is an abstract class that contains all the classes and methods
+required for managing events such as positioning and sizing the components.
+* All the components which are showed on the screen and the components which
+interact with the user are derived from Component class.
+* The Component class is derived from Object class. Button,
+* TextField, Label etc are all the examples of component. 
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+
+Container:
+* Container is derived from Component class.
+* It contains all the components – Window, Frame, Applet, Panel etc are all containers
+* The Container class contains additional methods that make the components to be
+nested within the container.
+* It can also contain the other container objects as a component inside it.
+* Laying out of all components of a container is the responsibility of the layout
+manager.
+
+------------------------------------------------------------------------------------------------------------------
+
+Buttons:
+->A push button is a component that contains a label and that generates an event when 
+it is pressed. Push buttons are the objects of type Button.
+->Button defines two constructors
+1.Button( ) : it creates an empty button
+2.Button(String str) : it creates a button that contains str as a label
+->The following are the methods
+1.void setLabel(String str) : it is used to set a label on the push button
+2.String getLabel( ) : it returns the label of the push button as String
+
+Example program
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+/*
+<applet code = “Buttons” width=200 height=100>
+</applet>
+*/
+public class Buttons extends Applet implements ActionListener
+{
+String msg=” “;
+Button b1,b2,b3;
+public void init( )
+{
+b1 = new Button(“CSE”);
+b2 = new Button(“ECE”);
+b3 = new Button(“EEE”);
+add(b1);
+add(b2);
+add(b3);
+b1.addActionListener(this);
+b2.addActionListener(this);
+b3.addActionListener(this);
+}
+public void action Performed(ActionEvent ae)
+{
+String s=ae.getActionCommand( );
+if(s.equals(“CSE”))
+msg = “you have selected CSE branch”;
+else if(s.equals(“ECE”)
+msg = “you have selected ECE branch”;
+else
+msg = “you have selected EEE branch”;
+repaint( );
+}
+public void paint(Graphics g)
+{
+g.drawString(msg,6,100);
+}
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Labels:
+->Lable is a text information that displays on the GUI as a string. It is a passive control 
+that do not support any interaction with the user. 
+->Label defines the following constructors:
+1.Label( ) : it creates a blank label
+2. Label(String str) : it creates a label that contains the string specified by str (left 
+aligned)
+3.Label(String str, int align) : it creates a label that contains the string specified by str 
+using the alignment specified by “align”. The value of “align” must be one of the 
+following three constants: Label.LEFT, Label.RIGHT and Lable.CENTER
+
+->The following are the methods
+1.void setText(String str) : it is used to change the text specified by the str argument.
+2.String getText( ): it returns the text from the label.
+
+Example program
+import java.applet.*;
+import java.awt.*;
+/*
+<applet code = “Labels” width=200 height=100>
+</applet>
+*/
+public class Labels extends Applet
+{
+public void init( )
+{
+Label a = new Label(“Enter first value”);
+Label b = new Label(“Enter second value”);
+add(a);
+add(b);
+}
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+Check box and Radio buttons:
+Check box
+-> Check box is a control that is used to turn an option on or off. It consists of a small 
+box that can either contain mark or not. There is a label associated with each check box 
+that describes the option. It can change the state of the check box by clicking it. Check 
+boxes are the objects of the “Checkbox” class.
+-> Checkbox defines the following constructors:
+1. Checkbox( ) – it creates a blank and unchecked checkbox.
+2. Checkbox( String str ) – it creates checkbox with the given label and state.
+3. Checkbox( String str, Boolean on ) – it creates checkbox with the given label and 
+state.
+-> The following are the methods.
+1. String getLabel( ) – it obtains the checkbox text.
+2. Boolean getState( ) – it obtains the present state of the checkbox.
+3. checkboxGroup getCheckboxGroup( ) – it obtains the relative checkbox group. 
+4. void setLabel( String label ) – it sets the checkbox label to the given text.
+5. void setState( Boolean state ) – it sets the state of checkbox to the given state. 
+
+Radio buttons
+* Radio buttons are created an instances of the CheckboxGroup class. 
+* They are similar to check boxes. Radio buttons have also two states selected or 
+deselected. 
+* They are a group of buttons from which only one button can be selected at any time.
+* If other radio button is selected then the previously selected radio button will get 
+deselected automatically.
+* The grouping of radio buttons are made by adding the RadioButton object to a 
+CheckboxGroup object that will be responsible for the state of buttons in the group.
+* There is no class provided for radio buttons in java.awt package. All the methods of 
+java AWT checkbox can be used by radio buttons.
+* An instance of check box group can be created as follows:
+CheckboxGroup cb = new CheckboxGroup( );
+* This check box should be added to the CheckboxGroup using the below method:
+add (new Checkbox(“Yes/No”,cb, true/flase);
+
+List box and choice box:
+List box
+* The “List” class provides a compact, multiple-choice, scrolling section list. The list 
+object can be constructed to show any number of choices in the visible window. It 
+can also be created to allow multiple selections.
+* The following are the constructors of List class
+1. List( ) – It creates a list which allows only one item to be selected at a time.
+2. List( int nr ) – It creates a list with the number of rows specified by nr.
+3. List( int nr, Boolean ms ) - It creates a list with the number of rows specified by 
+nr. If the multiple select is true then it allows multiple items to be selected at a 
+time.
+* The following are the methods of List class.
+1. void add(String item) – It is used to append the specified item to the list.
+2. void deselect(int index) – It is used to deselect the item at the given index.
+3. String getItem(int index) –It is used to obtain the item from the given index.
+4. int getRows( ) – It is used to obtain the number of visible lines from the list.
+5. int getSelectedIndex( ) – It is used to obtain the index of the selected item. 
+
+Choicebox:
+* The “Choice” is used to create a pop-up list of items from which the user may 
+choose. A choice control is a form of menu.
+* To select anything from the choice, the user can just pop-down the choice list and 
+then select from it.
+* The choice box is a type of menu.
+* When it is not used, it consumes less space by displaying just the selected item. 
+* The items of the choice box are aligned to left.

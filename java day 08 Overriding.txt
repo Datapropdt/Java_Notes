@@ -1,0 +1,394 @@
+Overriding or Method Overriding:
+
+
+Method overriding
+The member function of a base class is said to be overridden if the function is 
+defined in the subclass with same name as that of function of base class. It is nothing but 
+redefining the base class function in the subclass.
+
+Example:
+class A  //parent
+{
+int i,j;
+public A(int a)
+{
+i=a;
+//j=b;
+
+}
+public void show()
+{
+System.out.println("i="+i); //"\n"+"j="+j
+}
+}
+class B extends A
+{
+int k,l;
+B(int a,int b,int c)
+{
+super(a);
+l =b;
+k=c;
+}
+public void show()
+{
+System.out.println("k="+k,"l="+l);
+}
+}
+class Override
+{
+public static void main(String[] args) 
+{
+B b=new B(1,2,3);
+b.show();
+}
+}
+
+O/p:
+
+-----------------------------------------------------------------
+Abstract class:
+Java defines abstract classes using the keyword “abstract". The class that doesn’t have body is called abstract class. 
+* An abstract class can contain subclasses in addition to abstract methods. 
+* If the method containing in the subclasses does not override the methods of base 
+class then they will be considered as abstract classes. So, all the subclasses must 
+provide the implementation for all the base class’s abstract methods. 
+* Abstract class cannot be instantiated. 
+* The class that contain one or more abstract methods need to be declared as abstract 
+class. 
+* There will be no objects for abstract class because it doesn’t provide complete 
+implementation.
+* If any attempt is made to create the object for this class, a compile-time error will be 
+generated. 
+Syntax:
+abstract class class-name
+{
+//code
+}
+
+Program to demonstrate abstract
+abstract class Baseclass
+{
+abstract void display( );
+}
+class Subclass extends Baseclass
+{
+void display( )
+{
+System.out.println(“Sub class");
+}
+}
+classAbstractdemo
+{
+public static void main( String args[ ] )
+{
+Subclass s = new Subclass( );
+s.display( );
+}
+}
+o/p:
+-----------------------------------------------------------------
+
+Function Overloading:
+In Java, it is possible to define two or more methods within the same class that share the same name as long as these methods have different set of parameters ie based on the number of arguments, the datatypes of arguments and the order of arguments. 
+Then the methods are overloaded and the process is referred as Method overloading or Function overloading.
+
+Note:
+* When overload method is called, the java compiler selects the proper method by 
+examine the number of arguments, the datatype and the order arguments in the call. 
+* Method overloading is commonly used to create several methods with same name that perform fast accessing. 
+
+Example:
+class Function
+{
+int a;
+void area()
+{
+int b=10,h=5;
+a=(b*h)/2;
+System.out.println("area of triangle="+a);
+}
+void area(int s)
+{
+a=s*s;
+System.out.println("area of square="+a);
+}
+void area(int l,int b)
+{
+a=l*b;
+System.out.println("area of rectangle="+a);
+}
+void area(int l,int b,int h)
+{
+a=l*b*h;
+System.out.println("area of cube="+a);
+}
+}
+class Overloading
+{
+public static void main(String args[])
+{
+Function f=new Function();
+f.area();
+f.area(10);
+f.area(10,20);
+f.area(10,20,5);
+}
+}
+o/p:
+
+
+------------------------------------------------------------------------------------------------------------------------
+
+Differences between method overloading and method overriding.
+Method overloading :
+1. It is a method in which two or more functions have the same name, but differ in their signatures.
+2. The number of parameters can vary in both the functions.
+3. Both functions can have different return types.
+
+
+Method overriding:
+1. It is a method in which a derived class redefines the member function of a base class. Signatures of both the functions are same but differ in their implementations.
+2. The number of parameters passed should be same.
+3. Derived and base member functions should have same return types. 
+
+
+------------------------------------------------------------------------------------------------------------------------
+Interface:
+Def:
+Interface is a collection of method declarations and constants that one or more classes of objects will use. Interface is same as class except that it consists of the methods that are declared have no method definition. They end with semicolon after the parameter list.
+
+Syntax: 
+access-specifier interface interface-name
+{
+type var1=value;
+type var2=value
+…
+returntype method-name1(parameters-list);
+returntype method-name2(parameters-list);
+…
+}
+
+
+Here, access specifier is public or not used. Public access specifier indicates that the 
+interface can be used by any class. Otherwise, the interface will be accessible to the 
+class that are defined in the same package.
+* “interface" keyword is used to declare the class as an interface.
+* “interface-name" is the name of the interface and it is a valid identifier.
+* Variables declared inside the interface are implicitly final and static. They cannot be 
+changed in the implementation of classes.
+* All the methods in an interface are implicitly abstract methods. Method 
+implementation is given in next stages.
+* The main difference between a class and interface is class contain methods with 
+method definitions and the interface contain only abstract methods.
+
+For example, interface
+public interface Shape
+{
+int radius=2;
+public void area(int a);
+}
+
+Implementing interfaces: 
+* Once the interface has been defined, one or more classes can implement that 
+interface. “implements" keyword used for implementing the classes.
+* Syntax:
+class class-name implements interface1, interface2, …
+{
+…..
+…. class body
+}
+* If a class implements more than one interface, the interfaces are separated with a 
+comma operator. The methods that implement an interface must be declared public.
+
+
+Program to demonstrate multiple inheritance using interfaces
+class Marks
+{
+int s1,s2,s3;
+void getdata(int x,int y,int z)
+{
+s1=x;
+s2=y;
+s3=z;
+}
+void display()
+{
+System.out.println("subject1="+s1);
+System.out.println("subject2="+s2);
+System.out.println("subject3="+s3);
+}
+}
+interface Sports
+{
+int smarks=55;
+public void show();
+}
+class Result extends Marks implements Sports
+{
+int total;
+public void show()
+{
+display();
+total=s1+s2+s3+smarks;
+System.out.println("Total marks="+total);
+}
+}
+class Multiple 
+{
+public static void main(String[] args) 
+{
+Result r=new Result();
+r.getdata(35,67,89);
+r.show();
+}
+}
+
+O/p:
+
+
+
+How interfaces can be extended:
+In Java, interfaces are extended using “extends" keyword. 
+* The extending interface is called sub-interface and the interface that is being 
+extended is called super-interface.
+* The sub-interface can access all the members of its super-interface.
+* The class which implements that sub-interface must provide the implementations for 
+all the methods of both super-interface and sub-interface.
+* Syntax: interface subinterface-name extends superinterface-name
+{
+//code;
+}
+
+
+Program to extend interfaces
+interface Marks
+{
+void display();
+}
+interface Sports extends Marks
+{
+void show();
+}
+class Student implements Sports
+{
+void display( )
+{
+System.out.println(“Displaying marks");
+}
+void show()
+{
+System.out.println("Displaying sports marks");
+}
+}
+class Sample
+{
+public static void main(String[] args) 
+{
+Student s=new Student();
+s. display( );
+s. show( );
+}
+}
+
+O/P:
+
+---------------------------------------------------------------------------------------------------------
+Differences between interfaces and abstract classes
+
+Interface:
+1. It is declared using “interface" keyword.
+2. It supports multiple inheritance.
+3. It does not contain constructors.
+4. Interface methods do not use any access specifier with it since all the methods are public by default.
+5. It uses “implements" keyword for implementing subclasses.
+6. It does not have main( ) method.
+7. It can have only static, final variables by default.
+8. It contains only abstract methods.
+
+
+Abstract class:
+1. It is declared using “abstract" keyword.
+2. It does not support multiple inheritance.
+3. It contains constructors.
+4. Abstract methods can use public, private, protected and default specifier. 
+5. It uses “extends" keyword for extending the subclasses.
+6. It has main( ) method.
+7. It can have static, final variables with any access specifier. 
+8. It contain both abstract and concrete methods.
+
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Packages:
+Package is a collection of related classes and interfaces. It groups them based on 
+their functionality. It acts as container for the class. 
+* Java packages are classified into two types.
+1. Java API
+2. User defined packages
+* Java API(Application Programming Interface) packages or pre-defined packages or built-in packages are defined by the system. Some of the examples are java.util, java.lang, java.awt, java.applet etc.
+* User defined packages are defined by the user.
+Defining and creating package:
+* To define a package, place “package" command as the first statement in the java 
+source file. So that any class declared within that file belongs to the specified 
+package.
+
+Syntax: package pack-name;
+where pack-name is the name of the package.
+* Example:
+package sample;
+public class Addition
+{
+public void add(inta,int b)
+{
+System.out.println("Sum="+(a+b));
+}
+}
+
+Note:
+* The class that is defined in the package must be start with the public access specifier. 
+So, that it can be accessible by any another of them. If it is not public, it is possible to 
+access only in that package.
+* Java uses file system directories to store packages. We save the program with 
+Addition.java and complie the package is as 
+javac –d . Addition.java
+
+Due to this compilation, sample directory is automatically created and .class file 
+stored in that directory.
+* Package creation has completed. 
+Accessing a package or importing a package:
+* The package information is now including in our actual program by means of 
+“import" statement. “import" is a keyword that links the package with our 
+program. It is placed before the class definitions.
+
+import sample.*;
+or import sample.Addition;
+
+Program to demonstrate package
+
+package sample;
+public class Addition
+{
+public void add(inta,int b)
+{
+System.out.println("Sum="+(a+b));
+}
+}
+
+javac –d . Addition.java // only compilation, no execution
+C:/>dir
+
+Observe that there is sample directory automatically created. In that, Addition.class is one member.
+
+import sample.Addition;
+class PackageDemo
+{
+public static void main(String[] args) 
+{
+Addition a=new Addition();
+a.add(3,4);
+}
+}
+
+
+----------------------------------------------------------------------------------------------------------------------------------------

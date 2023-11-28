@@ -1,0 +1,273 @@
+Inheritance:
+The mechanism of deriving a new class from old class is called inheritance. Getting properties from base class to the derived class is called inheritance. 
+
+* The class which gives properties to the other classes is called base class or super 
+class or parent class. The class which accepts or receives properties from the other 
+classes is called derived class or sub-class or child class. 
+* Inheritance allows subclasses to inherit all the data members and member functions 
+of their parent classes. 
+* The main advantage of inheritance is code reusability. 
+* The “extends” keyword is used in the concept of inheritance. It is used to derive the 
+classes from another class.
+* The “extends” keyword is used in the sub class declaration and it is followed by 
+super class name.
+* Subclass inherits all the data members and member functions from the parent class.
+
+Syntax:
+class derived-class-name extends base-class-name
+{
+Variables-declaration;
+Member-functions definition;
+}
+
+Note:The object must be declared to the derived class only.
+
+
+Types of inheritance
+1. Single inheritance or inheritance
+2. Multilevel inheritance
+3. Multiple inheritance
+4. Hybrid inheritance
+5. Hierarchical inheritance
+
+---------------------------------------------------------------
+1. Single inheritance:
+Derivation of one subclass from only one super class is called single inheritance.
+Syntax: class A
+{
+//code
+}
+class B extends A
+{
+//code
+}
+
+Example:
+
+class Student
+{
+int rno;
+void getrno(int x)
+{
+rno=x;
+}
+void displayrno()
+{
+System.out.println("rno="+rno);
+}
+}
+class Marks extends Student
+{
+int m1,m2,m3,total;
+void getmarks ( intx, inty, int z)
+{
+m1=x;
+m2=y;
+m3=z;
+}
+void displaymarks( )
+{
+System.out.println("m1="+m1);
+System.out.println("m2="+m2);
+System.out.println("m3="+m3);
+}
+void calculate()
+{
+total=m1+m2+m3;
+System.out.println("total="+total);
+}
+}
+class Single
+{
+public static void main(String[] args) 
+{
+Marks m=new Marks();
+m.getrno(10);
+m.getmarks(70,80,90);
+m.displayrno( );
+m.displaymarks( );
+m.calculate( );
+}
+}
+o/p:
+------------------------------------------------------------
+2. Multilevel inheritance:
+Derivation of a class from another derived class is called multilevel inheritance. In this 
+type, derived class can act as base class for some other derived class. 
+
+Syntax:
+class A
+{
+//code
+}
+class B extends A
+{
+//code
+}
+class C extends B
+{
+//code
+}
+
+Example:
+class Student
+{
+int rno;
+void getrno(int x)
+{
+rno=x;
+}
+void displayrno()
+{
+System.out.println("rno="+rno);
+}
+}
+class Marks extends Student
+{
+int m1,m2,m3;
+void getmarks(int x,int y,int z)
+{
+m1=x;
+m2=y;
+m3=z;
+}
+void displaymarks()
+{
+System.out.println("m1="+m1);
+System.out.println("m2="+m2);
+System.out.println("m3="+m3);
+}
+}
+class Result extends Marks
+{
+int total;
+float avg;
+void calculate()
+{
+total=m1+m2+m3;
+System.out.println("total="+total);
+avg=total/3;
+System.out.println("average="+avg);
+}
+}
+class Multilevel
+{
+public static void main(String[] args) 
+{
+Result r=new Result();
+r.getrno(10);
+r.getmarks(70,80,90);
+r.displayrno();
+r.displaymarks();
+r.calculate();
+}
+}
+
+O/p:
+----------------------------------------------------------------
+3. Multiple inheritance:
+Derivation of one class from two or more super classes is called multiple inheritance. But java does not support multiple inheritance directly. It can be implemented by using interface concept.
+ 
+ _A _
+|        |
+B      C
+----------------------------------------------------------------
+
+
+4. Hybrid inheritance:
+Hybrid inheritance is the combination of both single and multiple inheritances.
+
+ _A _
+|        |
+B      C
+        /  \
+       D  E
+----------------------------------------------------------------
+5. Hierarchical inheritance:
+Derivation of several classes from a single base class is called Hierarchical inheritance.
+
+Syntax: class A
+{
+//code
+}
+class B extends A
+{
+//code
+}
+class C extends A
+{
+//code
+}
+class D extends A
+{
+//code
+}
+
+----------------------------------------------------------------
+"Super" keyword:
+The “super” keyword is used to access the base class methods. 
+* If the base class and derived class have methods and variables with same name then 
+the members of base class will be accessed by “super” keyword. 
+
+Syntax: 
+super.variable-name;
+super.method-name( );
+
+* “super” keyword is used to access the constructor of base class. 
+* A subclass constructor is used to access the instance variable of both the subclass 
+and the base class. The subclass constructor uses the keyword “super” to invoke the 
+constructor method of the parent class. 
+* “super” may be used only within the subclass constructor method
+* The call to the base class constructor must appear as the first statement with in the 
+subclass constructor.
+* If parameterized constructor is used, then the signature is matched with the 
+parameters passed to the “super” method as super(parameter-list).
+
+-----------------------------------------------------------------
+“final” keyword:
+A final is a keyword used for three purposes. They are :
+1) final as constant:
+A variable can be declared as constant with the keyword final. It must be initialized while declaring. Once we initialized the variable with final keyword, it cannot be modified in the program.
+
+Example:
+final int x=10;
+X=45; //error
+
+2) final with methods (OR) final to prevent overriding:
+A method that is declared as final cannot be overridden in a subclass method. 
+
+Example:
+class A
+{
+final void show( )
+{
+System.out.println(“it is defined with final method”);
+}
+}
+class B extends A
+{
+void show( ) // raises compile time error
+{
+System.out.println(“overriding final method”);
+}
+}
+
+3) final with classes (OR) final to prevent inheritance:
+The class that is declared as final, implicitly declares all of its methods as final. 
+The class cannot be extended to its subclass. 
+
+Example:
+final class A
+{
+public void display( )
+{
+System.out.println(“This is final class method”);
+}
+}
+class B extends A //error
+{
+public void display( )
+{
+System.out.println(“Hello”);
+}
+}

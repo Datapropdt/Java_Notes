@@ -1,0 +1,192 @@
+Multithreading: 
+Multithreading is a powerful programming tool that divides a single program into multiple subprograms and each subprogram is called thread, which are executed separately.
+
+* Thread is a light weight process. 
+* Thread is a single sequential flow of control within a program. 
+* Thread can be defined as a set of instructions that are executed independently.
+* Multithreading enables programmers to write efficient programs by making maximum use of CPU.
+
+>>>Multiple threads on multiple CPUs [threads1.png]
+
+
+Advantages:
+* Threads are used to enhance parallel processing. Hence, they decrease the execution time of a program. 
+* They are used to increase response to the user.
+* They are used to utilize the idle time of the CPU.
+* They are used to prioritize your work depending on priority.
+* Thread only runs when needed. So Threads can give better performance. 
+* A thread can share the data with other threads.
+
+Disadvantages:
+* Multiple threads can lead to deadlock.
+* Overhead of switching between threads
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Differences between multi-tasking and multi-threading :
+
+Multi-tasking:
+1. It is a process of executing multiple tasks simultaneously.
+2. It is an operating system concept.
+3. It is less efficient.
+4. It can implement efficient programs in operating system.
+5. It executes multiple programs simultaneously.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+
+Thread life cycle
+
+Thread states
+Thread has 4 states.
+1. New
+2. Runnable
+3. Not Runnable
+4. Terminated
+
+>>>Thread life cycle:[threads2.png]
+
+int a , b , c;
+
+c =  a + b ;
+30 = 10 + 20
+
+
+1. New
+* In this state, a new thread is created but not started. 
+* A thread is said to be born or new when a new thread object is created. Thread threadobj = new ThreadDemo( );
+* In this state, no system resource is allotted to the newly born thread object. 
+* From this state, the thread can be either started using start( ) or killed using interrupt( ), moving to “Runnable” or “Terminated” state respectively.
+* No other method apart from start( ) and interrupt( ) can be called from this state and if tried to do so, it would cause an exception, IllegalThreadStarteException.
+
+2. Runnable
+* In this state, a thread is ready for execution by the JVM. It represents the running state of the thread. 
+* Ready state of a thread can be defined as it is ready for execution but it might be in the queue, waiting for the operating system to provide the required resource. 
+* Once the thread is actually being executed by the processor then it is termed as “Running”. 
+* From New state, the thread might move to the “Runnable” state on execution of the following statements:
+Thread threadobj = new ThreadDemo( );
+threadobj.start( );
+* As soon as start( ) is called, system recourse is allotted to the thread as per schedule done by the Java Runtime Environment. Now thread has entered into the runnable state. 
+* There is a difference between Running thread and Runnable thread. A running thread is one which is being executed by the processor. Such a thread can be access the “current thread”. Runnable threads are those which are not actually running, but are scheduled in queue to get the processor. 
+
+3. Not Runnable
+* This state is just a hypothetical state used by us to categorize the three valid states namely WAITING, TIMED_WAITING and BLOCKED. 
+* WAITING state, a thread is waiting indefinitely for another thread to perform a particular action (ie notify ). Threads can move into this state by calling object.wait( ) or object.join( ). (without time out). 
+* TIMED_WAITING state, the thread is waiting for another thread to perform an action (notify) up to a specified waiting time. A thread can get into this state by calling either of the following methods : Thread.sleep( ), object.wait( ), Thread.join( ). 
+* BLOCKED state, a resource cannot be accessed because it is being used by another thread. A thread can enter into this state by calling object.wait( ). 
+
+4. Terminated
+This is the final state in thread life cycle. A thread may be dead in different ways.
+a) Natural death means - after completion of execution, the thread generally terminates.
+b) Abnormal death means – the thread can be killed in born state or running state or blocked state.
+
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+Creation of Thread
+ Thread can be created by using an object of type “Thread”. 
+ A thread can be created in two ways:
+a) By implementing Runnable interface.
+b) By extending Thread class.
+
+a) Implementing Runnable interface
+* The simple and easiest way for creating the thread is to create a class which 
+implements Runnable interface. 
+* Runnable interface is abstract unit of executable code.
+* In-order to implement Runnable, a class required to implement a single method 
+called run( )
+* In this method, we can define the code of a new thread.
+class MyThread implements Runnable
+{
+… … …
+public void run( )
+{
+… …
+… …
+}
+}
+* One of the important constructors defined by “Thread” is given below.
+Thread(Runnable obj, String tname)
+Here, ‘obj’ is the instance of a class which implements Runnable interface and 
+‘tname’ is the name of new thread.
+
+
+Example: 
+class MyThread implements Runnable 
+{
+String tname;
+MyThread(String name) 
+{
+tname = name;
+}
+
+public void run() 
+{
+try 
+{
+for(;;) 
+{
+System.out.println(tname);
+Thread.sleep(1000);
+}
+} 
+catch(InterruptedException e) 
+{
+System.out.println(e);
+}
+}
+}
+class ThreadDemo
+{
+public static void main(String [] args) 
+{
+MyThread m1 = new MyThread("Hello");
+MyThread m2 = new MyThread("There");
+Thread t1 = new Thread(m1);
+Thread t2 = new Thread(m2);
+t1.start();
+t2.start();
+}
+}
+O/P:
+
+---------------------------------------------------------------------------------------------------------------------------------------------------
+b) Extending Thread class
+This is another way of creating a thread. Here, a new class which extends “Thread” 
+is created. Later, instance of the class is created. 
+* The class which is derived should override the run( ) method to switch the thread 
+into runnable state.
+* In-order to start execution, it should invoke start( ) method.
+Example:
+
+class MyThread extends Thread 
+{
+String tname;
+MyThread(String name) 
+{
+tname = name;
+}
+public void run() 
+{
+try 
+{
+for(;;) 
+{
+System.out.println(tname);
+sleep(1000);
+}
+} 
+catch(InterruptedException e) 
+{
+System.out.println(e);
+}
+}
+}
+class DemoThread2
+{
+public static void main(String [] args) 
+{
+MyThread m1 = new MyThread("Hello");
+MyThread m2 = new MyThread("There");
+m1.start();
+m2.start();
+}
+}
+O/p:

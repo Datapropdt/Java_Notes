@@ -1,0 +1,123 @@
+Object 
+* An object can be defined as an instance of the class which is used to access the members of a class. 
+ * An object is the real world entity.
+ * An object is the representative of class.
+
+Syntax: class-name object-name;
+Eg: Student s;
+/* Here, Student is the class name and “ s “ is the object name.*/
+
+Class 
+*A class can be defined as a template that groups data and its associated functions. 
+* The class contains two parts namely,
+a) Declaration of data members.
+b) Declaration of member functions.
+* The data members of a class explain about the state of the class and the member 
+functions explain about the behavior of the class. 
+* There are three types of variables for a class. They are,
+a) Local variables – declared inside the class.
+b) Instance variables – declared inside the class but outside of the methods.
+c) Class variables – declared inside the class with static modifier and they reside 
+outside of the method. 
+
+
+Data abstraction:
+Representing the essential features without including its background details is called data abstraction. 
+It is the mechanism that hides the implementation details and shows only the functionality. 
+
+Encapsulation:
+Encapsulation is the mechanism of binding data members and corresponding methods into a single module or class in-order to protect them from being accessed by the outside code. 
+The data and functions in a class are called as members of the class. The data defined in the class are called data members and the functions defined are called member functions. 
+The main idea behind the concept of encapsulation is to obtain high maintenance and to handle the application’s code. 
+
+
+Inheritance:
+Acquiring or getting properties from base class to the derived class is called as inheritance. 
+The class which gives properties to the other classes is called base class and the class 
+which accepts properties from the other class is called derived class.
+The main advantage of inheritance is code reusability. 
+The following are the types of inheritance
+a) Single level inheritance
+b) Multi-level inheritance
+c) Multiple inheritance
+d) Hybrid inheritance
+e) Hierarchical inheritance
+
+Polymorphism:
+Poly means many and morph means forms. So the ability to make more than one form 
+is called polymorphism. 
+It is used in inheritance programs. 
+It can be divided as two ways
+a) Static polymorphism ( Compile-time polymorphism )
+b) Dynamic polymorphism ( Run-time polymorphism )
+---------------------------------------------------------------------------------
+Class
+ * A class can be defined as a template that groups data and its associated functions.
+ * The class contains two parts namely
+a) Declaration of data members (variables).
+b) Declaration of member functions.
+ * The data members of a class explain about the state of the class and the member
+functions explain about the behavior of the class.
+ * There are three types of variables for a class. They are
+a) Local variables – variables declared inside the methods.
+b) Instance variables – variables declared inside the class, but outside the methods.
+c) Class variables – variables declared inside the class with static keyword and they
+placed outside of the method.
+General form of a class
+ * A class is declared using “class” keyword followed by name of the class.
+ Syntax
+class class-name
+{
+//instance variables
+datatype var;
+…
+//class variables
+static datatype var;
+datatype method1(args-list)
+{
+//local variables
+datatype var;
+…
+//body of function
+}
+datatype method2(args-list)
+{
+//local variables
+datatype var;
+…
+//body of function
+}
+…
+}
+-----------------------------------------------
+Object:-
+An object can be defined as an instance of a class which is used to access the members of a class.
+Declaration of an object:-
+An object is similar to that of variable declaration.
+Syntax:
+class-name object-name;
+Example:
+Student s;
+
+Here Student is the class name and “ s “ is the reference variable which represents object.
+
+Initialization of Object:-
+When a reference variable is declared, it is necessary to assign memory to that
+object. This can be done by using “new” operator. This operator allocates memory
+dynamically with the help of a default constructor.
+
+Syntax:
+class-name object-name = new class-name( );
+Example:
+Student s = new Student ( );
+
+Accessing class members:-
+An object can access the members of a class using dot ( . ) operator. Class members
+are the data members and member functions.
+Syntax:
+Object-name . member-name;
+------------------------------------------------
+	
+
+
+

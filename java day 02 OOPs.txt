@@ -12,15 +12,72 @@ Class
 * The class contains two parts namely,
 a) Declaration of data members.
 b) Declaration of member functions.
-* The data members of a class explain about the state of the class and the member 
-functions explain about the behavior of the class. 
+* The data members of a class explain about the state of the class and the member functions explain about the behavior of the class. 
 * There are three types of variables for a class. They are,
 a) Local variables – declared inside the class.
 b) Instance variables – declared inside the class but outside of the methods.
-c) Class variables – declared inside the class with static modifier and they reside 
-outside of the method. 
+c) Class variables – declared inside the class with static modifier and they reside outside of the method. 
+---------------------------------------------------------------------------------
+General form of a class:
+* A class is declared using “class” keyword followed by name of the class.
+ Syntax
+class Class-name
+{
+//instance variables
+datatype var;
+…
+//class variables
+static datatype var;
+access modifier datatype method1(args-list)
+{
+//local variables
+datatype var;
+…
+//body of function
+}
+datatype method2(args-list)
+{
+//local variables
+datatype var;
+…
+//body of function
+}
+…
+}
+
+-----------------------------------------------
+Object:-
+Initialization of Object:-
+When a reference variable is declared, it is necessary to assign memory to that object. This can be done by using “new” operator. This operator allocates memory dynamically with the help of a default constructor.
 
 
+
+Syntax:
+class-name object-name = new class-name( );
+Example:
+Student s = new Student ();
+
+Accessing class members:-
+An object can access the members of a class using dot ( . ) operator. 
+Class members are the data members and member functions.
+Syntax:
+Object-name . member-name;
+------------------------------------------------
+*Access Specifier: Access specifier or modifier is the access type of the method. It specifies the visibility of the method. Java provides four types of access specifier:
+
+Public: The method is accessible by all classes when we use public specifier in our application.
+Private: When we use a private access specifier, the method is accessible only in the classes in which it is defined.
+Protected: When we use protected access specifier, the method is accessible within the same package or subclasses in a different package.
+Default: When we do not use any access specifier in the method declaration, Java uses default access specifier by default. It is visible only from the same package only.
+Return Type: Return type is a data type that the method returns. It may have a primitive data type, object, collection, void, etc. If the method does not return anything, we use void keyword.
+
+*Method Name: It is a unique name that is used to define the name of a method. It must be corresponding to the functionality of the method. Suppose, if we are creating a method for subtraction of two numbers, the method name must be subtraction(). A method is invoked by its name.
+
+*Parameter List: It is the list of parameters separated by a comma and enclosed in the pair of parentheses. It contains the data type and variable name. If the method has no parameter, left the parentheses blank.
+
+*Method Body: It is a part of the method declaration. It contains all the actions to be performed. It is enclosed within the pair of curly braces.
+
+------------------------------------------------
 Data abstraction:
 Representing the essential features without including its background details is called data abstraction. 
 It is the mechanism that hides the implementation details and shows only the functionality. 
@@ -44,80 +101,8 @@ d) Hybrid inheritance
 e) Hierarchical inheritance
 
 Polymorphism:
-Poly means many and morph means forms. So the ability to make more than one form 
-is called polymorphism. 
+Poly means many and morph means forms. So the ability to make more than one form is called polymorphism. 
 It is used in inheritance programs. 
 It can be divided as two ways
 a) Static polymorphism ( Compile-time polymorphism )
 b) Dynamic polymorphism ( Run-time polymorphism )
----------------------------------------------------------------------------------
-Class
- * A class can be defined as a template that groups data and its associated functions.
- * The class contains two parts namely
-a) Declaration of data members (variables).
-b) Declaration of member functions.
- * The data members of a class explain about the state of the class and the member
-functions explain about the behavior of the class.
- * There are three types of variables for a class. They are
-a) Local variables – variables declared inside the methods.
-b) Instance variables – variables declared inside the class, but outside the methods.
-c) Class variables – variables declared inside the class with static keyword and they
-placed outside of the method.
-General form of a class
- * A class is declared using “class” keyword followed by name of the class.
- Syntax
-class class-name
-{
-//instance variables
-datatype var;
-…
-//class variables
-static datatype var;
-datatype method1(args-list)
-{
-//local variables
-datatype var;
-…
-//body of function
-}
-datatype method2(args-list)
-{
-//local variables
-datatype var;
-…
-//body of function
-}
-…
-}
------------------------------------------------
-Object:-
-An object can be defined as an instance of a class which is used to access the members of a class.
-Declaration of an object:-
-An object is similar to that of variable declaration.
-Syntax:
-class-name object-name;
-Example:
-Student s;
-
-Here Student is the class name and “ s “ is the reference variable which represents object.
-
-Initialization of Object:-
-When a reference variable is declared, it is necessary to assign memory to that
-object. This can be done by using “new” operator. This operator allocates memory
-dynamically with the help of a default constructor.
-
-Syntax:
-class-name object-name = new class-name( );
-Example:
-Student s = new Student ( );
-
-Accessing class members:-
-An object can access the members of a class using dot ( . ) operator. Class members
-are the data members and member functions.
-Syntax:
-Object-name . member-name;
-------------------------------------------------
-	
-
-
-

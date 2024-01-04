@@ -1,10 +1,10 @@
-Day 1:
+ Day 1:
 -------------------------------------------------
-Java Syllabus
+ Java Syllabus
 1. Java Introduction
 2. Datatypes
 3. Access Modifiers
-4.Operators
+4. Operators
 5. OOPS concepts
   i) Class & Objects
   ii) Data Abstraction
@@ -18,11 +18,13 @@ Java Syllabus
 10) Multi-Threading
 
 -------------------------------------------------------------------------------------------------------------
+
 1. Java Introduction
+
 Java is high level language, developed by James Gosling in 1995 by SUN microsystems.
 
 Uses of Java:
-1. Object Oreinted
+1. Pure Object Oreinted
 2. Platform Indepent
 3. Simple Design
 4. Secured Language
@@ -32,6 +34,7 @@ Uses of Java:
 8. Interpreted Language
 9. High Performance
 10. Dynamic Language
+
 ------------------------------------------------------------------------------------------------
 The following are the basic concepts of OOPS
 1. Object
@@ -45,7 +48,7 @@ The following are the basic concepts of OOPS
   
 Classes & Objects:
 Object : Object have states & behaviour
-ex: A dog has states like color, name, bread.
+ex: A dog has states like color, name, breed.
 
 *Note: Object is an Instance of a Class.
 
@@ -61,7 +64,7 @@ Instance Variable: Each objects has its unquie set of instance variables. An obj
 ex:1
 public class Hello
 {
-	public static void main(String args[])
+	public static void main(String args[]) 
 	{
 	System.out.println("Hello WORLD");
 	}
@@ -75,8 +78,7 @@ or variable is not instance related but class related. It can be accessed withou
 the instance of a class.
 * void is used to define the Return Type of the method. It defines what the method can 
 return. Void means the method will not return any value.
-* main is the name of the method. This method name is searched by JVM as a starting 
-point for a program.
+* main is the name of the method. This method name is searched by JVM as a starting point for a program.
 
 
 
@@ -85,7 +87,7 @@ To Open CMD prompt: navigate to address bar and type : "cmd".
 To compile : type :> javac filename.java  (enter)
 To Excute: type:> java filename (enter)
 
------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------
 Java Virtual Machine (JVM) is the most important part of java technology. 
  JVM and Java API together, form a platform for all java programs to run.
  JVM and Java API is known as Java Runtime Environment (JRE).
@@ -99,6 +101,8 @@ Source code ---> Java compiler ---> Byte code
 Byte code --> Java interpreter ---> Machine language
 
 
+Machine language --> Java interpreter ---> Output
+
  JVM loads the java classes, verifies the byte code, interprets and executes it. 
 Additionally, it provide functions like security management and garbage collection.
 
@@ -106,9 +110,10 @@ Additionally, it provide functions like security management and garbage collecti
 
 -----------------------------------------------------------------
 Java program structure:
-Syntax: Documentation section
+Syntax: 
+Documentation section
 Package statement
-Import statement
+Import statement  
 Interface statement
 Class definitions
 Main method class definition
@@ -116,6 +121,59 @@ Main method class definition
 main( ) method definition
  }
 
+
+-----------------------------------------------------------------
+Keywords:
+abstract
+assert
+byte
+boolean
+break
+class
+case
+catch
+char
+const
+continue
+default
+double
+do
+extends
+else
+enum
+final
+finally
+float
+for
+goto
+if
+implement
+instanceof
+int
+interface
+import
+long
+private
+public
+protected
+package
+native
+new
+strictfp
+super
+short
+static
+switch
+synchornised
+this
+throw
+throws
+transient
+try
+void
+volatile
+while
+return
 
 -----------------------------------------------------------------
 

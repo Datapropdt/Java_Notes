@@ -1,5 +1,11 @@
+Access Modifiers:
+i) Public:
+ii) Private
+iii) Protected
+iv) default: public
+
 Constructor:
-A constructor is a special member function that gets executed automatically whenever a new objectis created. 
+A constructor is a special member function that gets executed automatically whenever a new object is created. 
 
 Note: Constructor is a special member function that avoids unexpected results caused by 
 un-initialized variables. Generally, variables must be initialized before they are used for 
@@ -55,12 +61,13 @@ class Constructor
 public static void main(String args[])
 {
 Area a1=new Area();
-Area a2=  Area(10);
+Area a2=new Area(10); 
 Area a3=new Area(10,20);
 Area a4=new Area(10,20,5);
 }
 }
 o/p:
+
 
 -----------------------------------------------------------------
 Garbage collection:
@@ -79,6 +86,45 @@ object.
 * Any member function can find the address the object and access its data by using “this” 
 keyword. 
 
+
+Example: Program to demonstrate this keyword
+class Area
+{
+int a;
+Area()
+{
+Area(10); //	Area(10)
+int b=10,h=5;
+a=(b*h)/2;
+System.out.println("area of triangle="+a);
+}
+Area(int s)
+{
+this(10,20);
+a=s*s;
+System.out.println("area of square="+a);
+}
+Area(int l,int b)
+{
+this(10,20,5);
+a=l*b;
+System.out.println("area of rectangle="+a);
+}
+Area(int l,int b,int h)
+{
+a=l*b*h;
+System.out.println("area of cube="+a);
+}
+}
+class Thisdemo
+{
+public static void main(String args[])
+{
+Area a1=new Area();
+}
+}
+
+
 --------------------------------------------------------------
 Command line arguments:
 In Java, the user is allowed to give input or arguments at the command prompt at the 
@@ -93,7 +139,8 @@ public static void main(String[] args)
 int a,b,sum;
 a=Integer.parseInt(args[0]);
 b=Integer.parseInt(args[1]);
-sum=a+b;
-System.out.println("sum of a and b="+sum);
+c=Integer.parseInt(args[2]);
+sum=a+b+c;
+System.out.println("sum of a,b, c =\t "+sum);
 }
 }
